@@ -21,3 +21,11 @@ app.register(require("@fastify/formbody"));
 
 const PORT = Number(process.env.PORT) || 3000;
 const TARGET_API_URL = process.env.TARGET_API_URL;
+
+app.listen({ port: PORT, host: '0.0.0.0' }, (err) => {
+    if (err) {
+        app.log.error(err);
+        process.exit(1);
+    }
+    console.log(`✅ Gateway 运行在 http://0.0.0.0:${PORT}`);
+});
